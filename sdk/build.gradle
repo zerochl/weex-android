@@ -15,7 +15,7 @@ apply plugin: 'maven' // 引入maven插件
 // JitPack Maven
 apply plugin: 'com.github.dcendents.android-maven'
 // Your Group
-group='com.github.username'
+group='com.github.zerochl'
 ext.disableCov = project.hasProperty('disableCov') ? project.getProperty('disableCov') : 'false'
 if(!disableCov.toBoolean()){
     apply plugin: 'com.vanniktech.android.junit.jacoco'
