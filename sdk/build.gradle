@@ -1,20 +1,13 @@
-buildscript {
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.5.0'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
-    }
-}
-
-plugins {
-    id "com.github.hierynomus.license" version "0.14.0"
-}
-
 apply plugin: 'com.android.library'
 apply plugin: 'checkstyle'
 apply plugin: 'maven' // 引入maven插件
 // JitPack Maven
 apply plugin: 'com.github.dcendents.android-maven'
+
+//plugins {
+//    id "com.github.hierynomus.license" version "0.14.0"
+//}
+
 // Your Group
 group='com.github.zerochl'
 ext.disableCov = project.hasProperty('disableCov') ? project.getProperty('disableCov') : 'false'
@@ -211,36 +204,37 @@ dependencies {
     testCompile 'org.json:json:20160212'
 }
 
-if(file('../license/LICENSE').exists()){
-    license {
-        header = file('../license/LICENSE')
-        mapping('cpp','JAVADOC_STYLE')
-        mapping('h','JAVADOC_STYLE')
-    }
-
-    task weex_core_license(type: com.hierynomus.gradle.license.tasks.LicenseFormat){
-        source = fileTree(dir:"../weex_core").include(['**/*.h','**/*.cpp', '**/*.cc']).
-                exclude(['Source/rapidjson/**/*.h','Source/rapidjson/**/*.cpp',
-                         'Source/android/base/base64/**/*.h','Source/android/base/base64/**/*.cpp',
-                         'Source/android/jniprebuild/jniheader/*.h',
-                         'Source/base/Compatible.cpp',
-                         'Source/IPC/**/*.h','Source/IPC/**/*.cpp'])
-    }
-    preBuild.dependsOn licenseFormat
-}
-// 指定上传的路径
-def localMavenRepo = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
-// 上传Task，Gradle会生成并上传pom.xml文件。
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: localMavenRepo)
-
-            //构造项目的Pom文件
-            pom.groupId = 'com.taobao.android'
-            pom.artifactId = 'weex_sdk'
-            pom.version = '2.0.1'
-        }
-
-    }
-}
+//if(file('../license/LICENSE').exists()){
+//    license {
+//        header = file('../license/LICENSE')
+//        mapping('cpp','JAVADOC_STYLE')
+//        mapping('h','JAVADOC_STYLE')
+//    }
+//
+//    task weex_core_license(type: com.hierynomus.gradle.license.tasks.LicenseFormat){
+//        source = fileTree(dir:"../weex_core").include(['**/*.h','**/*.cpp', '**/*.cc']).
+//                exclude(['Source/rapidjson/**/*.h','Source/rapidjson/**/*.cpp',
+//                         'Source/android/base/base64/**/*.h','Source/android/base/base64/**/*.cpp',
+//                         'Source/android/jniprebuild/jniheader/*.h',
+//                         'Source/base/Compatible.cpp',
+//                         'Source/IPC/**/*.h','Source/IPC/**/*.cpp'])
+//    }
+//    preBuild.dependsOn licenseFormat
+//}
+//// 指定上传的路径
+//def localMavenRepo = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
+//// 上传Task，Gradle会生成并上传pom.xml文件。
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            repository(url: localMavenRepo)
+//
+//            //构造项目的Pom文件
+//            pom.groupId = 'com.zero.weex'
+//            pom.artifactId = 'weex_sdk'
+//            pom.version = '2.0.1'
+//            pom.packaging = "aar"
+//        }
+//
+//    }
+//}
