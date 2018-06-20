@@ -189,7 +189,7 @@ dependencies {
     provided "com.android.support:recyclerview-v7:${project.supportLibVersion}"
     provided "com.android.support:support-v4:${project.supportLibVersion}"
     provided "com.android.support:appcompat-v7:${project.supportLibVersion}"
-    provided "com.alibaba:fastjson:${project.fastjsonLibVersion}"
+    compile "com.alibaba:fastjson:${project.fastjsonLibVersion}"
 
     testCompile "com.alibaba:fastjson:${project.fastjsonLibVersion}"
     testCompile 'junit:junit:4.12'
