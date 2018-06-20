@@ -49,9 +49,9 @@ android {
     buildToolsVersion project.buildToolsVersion
     resourcePrefix "weex"
 
-    delete 'libs/armeabi/libweexcore.so'
-    delete 'libs/armeabi-v7a/libweexcore.so'
-    delete 'libs/x86/libweexcore.so'
+//    delete 'libs/armeabi/libweexcore.so'
+//    delete 'libs/armeabi-v7a/libweexcore.so'
+//    delete 'libs/x86/libweexcore.so'
 
     useLibrary 'org.apache.http.legacy'
     copy {
@@ -124,14 +124,14 @@ android {
             abiFilters "armeabi-v7a","armeabi","x86"
         }
 
-        externalNativeBuild {
-            cmake {
-                arguments '-DANDROID_PLATFORM=android-19',
-                        '-DANDROID_TOOLCHAIN=gcc',
-                        '-DANDROID_STL=gnustl_static',
-                        '-DCMAKE_BUILD_TYPE=Release'
-            }
-        }
+//        externalNativeBuild {
+//            cmake {
+//                arguments '-DANDROID_PLATFORM=android-19',
+//                        '-DANDROID_TOOLCHAIN=gcc',
+//                        '-DANDROID_STL=gnustl_static',
+//                        '-DCMAKE_BUILD_TYPE=Release'
+//            }
+//        }
     }
     buildTypes {
         release {
@@ -144,17 +144,17 @@ android {
 
         debug {
             buildConfigField "boolean", "ENABLE_TRACE", "true"
-            jniDebuggable true
+//            jniDebuggable true
             debuggable true
             consumerProguardFiles 'proguard-rules.pro'
         }
     }
 
-    externalNativeBuild {
-        cmake {
-            path '../weex_core/CMakeLists.txt'
-        }
-    }
+//    externalNativeBuild {
+//        cmake {
+//            path '../weex_core/CMakeLists.txt'
+//        }
+//    }
 
     sourceSets {
         main {
