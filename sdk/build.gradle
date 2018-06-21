@@ -1,12 +1,12 @@
+//plugins {
+//    id "com.github.hierynomus.license" version "0.14.0"
+//}
+
 apply plugin: 'com.android.library'
 apply plugin: 'checkstyle'
 apply plugin: 'maven' // 引入maven插件
 // JitPack Maven
 apply plugin: 'com.github.dcendents.android-maven'
-
-//plugins {
-//    id "com.github.hierynomus.license" version "0.14.0"
-//}
 
 // Your Group
 group='com.github.zerochl'
@@ -38,7 +38,7 @@ version = "0.18.13.25"
 sourceCompatibility = 1.8
 android {
 
-    publishNonDefault true
+//    publishNonDefault true
     compileSdkVersion project.compileSdkVersion
     buildToolsVersion project.buildToolsVersion
     resourcePrefix "weex"
