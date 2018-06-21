@@ -11,7 +11,7 @@ allprojects {
 	}
 依赖添加：
 dependencies {
-	        implementation 'com.github.zerochl:weex-android:0.18.1'
+	        implementation 'com.github.zerochl:weex-android:0.18.5'
 	}
 ```
 # 想自己编译的注意了，CMake被我注释掉了，只能自行对比最新代码了
